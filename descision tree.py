@@ -4,6 +4,9 @@ Created on Tue Nov 28 20:18:52 2017
 
 @author: Zzz~L
 """
+""" 决策树算法实现流程：计算信息熵——划分数据集——找到最好特征划分数据集（该特征在划分数据集后，信息增益最大）——
+    利用递归函数构建决策树函数（对于将所有属性都用完了，但仍然存在不唯一标签的分支，采用投票表决的方式决定该分支的类标签）
+"""
 #------------------------------机器学习实战第三章决策树----------------------
 #=========================计算熵=========================
 from math import log
@@ -49,7 +52,7 @@ def chooseBestFeatureToSplit(dataSet):
         for val in uniqval:#对于每种取值
             subsetdata=splitDataSet(dataSet,i,val)#划分数据集
             prob=len(subsetdata)/len(dataSet)#该取值下分类数占比
-            newEntropy += prob*calcShannonEnt(subsetdata)#计算新的信息熵,总信息熵是子集信息熵的加权平均值(期望)
+            newEntropy += prob*calcShannonEnt(subsetdata)#计算新的信息熵,总信息熵是子集信息熵的加权平均值(期望) H=3/5H(A)+2/5H(B)
         infoGain = baseEntropy - newEntropy  
         if infoGain>bestInfoGain:
             bestInfoGain=infoGain
