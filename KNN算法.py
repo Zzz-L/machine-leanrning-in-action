@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Nov 27 11:26:34 2017
-
+tips:该代码包含绘制带图例的分组散点图
 @author: Zzz~L
 """
-#tips:含有图例的分组散点图绘制
+
 #--------------------------机器学习实战第二章KNN算法------------------------------
 import numpy as np
 matr=np.mat(np.random.rand(4,4))#内部随机产生4*4数组,外部转化为矩阵
