@@ -2,10 +2,18 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Nov 27 11:26:34 2017
-tips:该代码包含绘制带图例的分组散点图
 @author: Zzz~L
 """
-
+"""KNN:预测新样本所属类别，利用距离样本最近的k个已知类别的样本，选择k个样本中出现次数
+       最多的类别
+       知识小结：1.tile(y,(4,1)) tile对y产生4*1维数组 将变量内容复制成输入矩阵同样大小的矩阵
+       2.distance.argsort() 对distance排序,并返回由小到大的值的index
+       3.count.get(lab,0)+1 count.get表示若lab in count,则返回lab的key,反之返回0
+       4.label=dataset['label'].copy() 选择复制后,再修改label时,不会改动原变量
+       5.label[label[:]=='didntLike']=1 此方法重新编码才不会产生SettingWithCopy
+       6.利用循环方式完成分组散点图 第61行
+       7.set_printoptions(threshold=Inf) 设置数组显示数目,Inf表示显示边界无穷
+"""
 #--------------------------机器学习实战第二章KNN算法------------------------------
 import numpy as np
 matr=np.mat(np.random.rand(4,4))#内部随机产生4*4数组,外部转化为矩阵
